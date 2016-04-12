@@ -28,23 +28,30 @@ public class ClientGui extends JFrame implements ActionListener{
 
     // set up GUI
     public ClientGui()
-    {
-        super( "Twitch Chat 3.0 VapeNation" );
-
+    {    	
+    	
+        super( "Twitch Chat 3.0 VapeNation" );    	
+        
         userList = new ArrayList<>();
         // get content pane and set its layout
         Container container = getContentPane();
         container.setLayout (new BorderLayout ());
+        container.setBackground(Color.BLACK);
 
         // set up the North panel
         JPanel upperPanel = new JPanel ();
+        upperPanel.setBackground(Color.DARK_GRAY);
+        upperPanel.setForeground(Color.WHITE);
         upperPanel.setLayout (new GridLayout (5,2));
         container.add (upperPanel, BorderLayout.NORTH);
 
         // create buttons
         connected = false;
 
-        upperPanel.add ( new JLabel ("UserName: ", JLabel.RIGHT) );
+        JLabel temp = new JLabel ("UserName: ", JLabel.RIGHT);
+        temp.setForeground(Color.LIGHT_GRAY);
+        
+        upperPanel.add ( temp );
         userName = new JTextField ("");
         userName.addActionListener( this );
         upperPanel.add( userName );
@@ -58,15 +65,24 @@ public class ClientGui extends JFrame implements ActionListener{
         connectButton.addActionListener( this );
         upperPanel.add( connectButton );
 
-        upperPanel.add ( new JLabel ("Server Address: ", JLabel.RIGHT) );
+        temp = new JLabel ("Server Address: ", JLabel.RIGHT);
+        temp.setForeground(Color.LIGHT_GRAY);
+        
+        upperPanel.add ( temp );
         machineInfo = new JTextField ("");
         upperPanel.add( machineInfo );
 
-        upperPanel.add ( new JLabel ("Server Port: ", JLabel.RIGHT) );
+        temp = new JLabel ("Server Port: ", JLabel.RIGHT);
+        temp.setForeground(Color.LIGHT_GRAY);
+        
+        upperPanel.add ( temp );
         portInfo = new JTextField ("");
         upperPanel.add( portInfo );
 
-        upperPanel.add(new JLabel("Message: ", JLabel.RIGHT));
+        temp = new JLabel("Message: ", JLabel.RIGHT);
+        temp.setForeground(Color.LIGHT_GRAY);
+        
+        upperPanel.add(temp);
         message = new JTextField ("");
         message.addActionListener( this );
         message.setEditable(false);
@@ -80,6 +96,27 @@ public class ClientGui extends JFrame implements ActionListener{
         userNameList.setEditable(false);
         container.add( new JScrollPane(userNameList), BorderLayout.EAST);
 
+        
+
+    	
+    	sendButton.setBackground(Color.DARK_GRAY);
+    	sendButton.setForeground(Color.LIGHT_GRAY);
+    	connectButton.setBackground(Color.DARK_GRAY);
+    	connectButton.setForeground(Color.LIGHT_GRAY);
+    	machineInfo.setBackground(Color.DARK_GRAY);
+    	machineInfo.setForeground(Color.LIGHT_GRAY);
+    	portInfo.setBackground(Color.DARK_GRAY);
+    	portInfo.setForeground(Color.LIGHT_GRAY);
+    	message.setBackground(Color.DARK_GRAY);
+    	message.setForeground(Color.LIGHT_GRAY);
+    	userName.setBackground(Color.DARK_GRAY);
+    	userName.setForeground(Color.LIGHT_GRAY);
+    	history.setBackground(Color.BLACK);
+    	history.setForeground(Color.LIGHT_GRAY);
+    	userNameList.setBackground(Color.BLACK);
+    	userNameList.setForeground(Color.LIGHT_GRAY);
+    	
+        
         setSize( 650, 448 );
         setResizable(false);
         setVisible( true );
